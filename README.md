@@ -21,9 +21,11 @@ Now you have downloaded the startup project.
 
 8- Run the command: composer update.
 
-9- Check the database name in parameters.yml
+9- Set up Symfony command line tools (project).
+
+10- Check the database name in parameters.yml
 
     If a database error occurs, create a new database using doctrine:database:create then doctrine:schema:create.
 
-10- Enjoy working on your project :)
+11- Enjoy working on your project :)
 
