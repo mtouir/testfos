@@ -15,11 +15,15 @@ Now you have downloaded the startup project.
 
 5- Open the projet in PHPStorm.
 
-6- Set up Symfony and Composer command line tools (project).
+6- Set up Composer command line tools (project).
 
-7- Check the database name in parameters.yml
+7- Copy your old parameters.yml to the folder app\config.
 
-    If a database error occurs, create a new one using doctrine:database:create then doctrine:schema:create.
+8- Run the command: composer update.
 
-8- Enjoy working on your project :)
+9- Check the database name in parameters.yml
+
+    If a database error occurs, create a new database using doctrine:database:create then doctrine:schema:create.
+
+10- Enjoy working on your project :)
 
