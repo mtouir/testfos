@@ -16,6 +16,7 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
+                success_handler: authentication.handler.login_success_handler
 
             logout:       true
             anonymous:    true
@@ -24,4 +25,9 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/admin, role: ROLE_ADMIN }
+        - { path: ^/veterinaire, role: ROLE_VETERINAIRE }
+        - { path: ^/dresseur, role: ROLE_DRESSEUR }
+        - { path: ^/promeneur, role: ROLE_PROMENEUR }
+        - { path: ^/association, role: ROLE_ASSOCIATION }
+        - { path: ^/hotel, role: ROLE_HOTEL }

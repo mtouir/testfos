@@ -1,10 +1,16 @@
-user:
-    resource: "@UserBundle/Controller/"
-    type:     annotation
-    prefix:   /
+admin_route:
+    resource: "@UserBundle/Resources/config/routing/administrateur.yml"
+    prefix:   /admin/
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+general_route:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:     /
+
+fos_user_registration_confirmed:
+    path: /confirmed
+    defaults:
+        _controller: UserBundle:Default:index
+        path: /
+
 fos_user:
      resource: "@FOSUserBundle/Resources/config/routing/all.xml"

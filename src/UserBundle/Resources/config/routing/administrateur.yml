@@ -1,0 +1,87 @@
+articles_grid:
+    path:     /articlesGrid
+    defaults: { _controller: UserBundle:Admin:articlesGrid }
+
+validateArticles_grid:
+    path:     /validateArticlesGrid/{id}
+    defaults: { _controller: UserBundle:Admin:validateArticlesGrid }
+
+veterinaires_grid:
+    path:     /veterinairesGrid
+    defaults: { _controller: UserBundle:Admin:veterinairesGrid }
+
+deleteVeterinaires_grid:
+    path:     /deleteVeterinairesGrid/{id}
+    defaults: { _controller: UserBundle:Admin:deleteVeterinairesGrid }
+
+dresseurs_grid:
+    path:     /dresseursGrid
+    defaults: { _controller: UserBundle:Admin:dresseursGrid }
+
+deleteDresseurs_grid:
+    path:     /deleteDresseursGrid/{id}
+    defaults: { _controller: UserBundle:Admin:deleteDresseursGrid }
+
+hotels_grid:
+    path:     /hotelsGrid
+    defaults: { _controller: UserBundle:Admin:hotelsGrid }
+
+deleteHotels_grid:
+    path:     /deleteHotelsGrid/{id}
+    defaults: { _controller: UserBundle:Admin:deleteHotelsGrid }
+
+promeneurs_grid:
+    path:     /promeneursGrid
+    defaults: { _controller: UserBundle:Admin:promeneursGrid }
+
+deletePromeneurs_grid:
+    path:     /deletePromeneursGrid/{id}
+    defaults: { _controller: UserBundle:Admin:deletePromeneursGrid }
+
+magasins_grid:
+    path:     /magasinsGrid
+    defaults: { _controller: UserBundle:Admin:magasinsGrid }
+
+deleteMagasins_grid:
+    path:     /deleteMagasinsGrid/{id}
+    defaults: { _controller: UserBundle:Admin:deleteMagasinsGrid }
+
+forums_grid:
+    path:     /forumsGrid
+    defaults: { _controller: UserBundle:Admin:forumsGrid }
+
+deleteForums_grid:
+    path:     /deleteForumsGrid/{id}
+    defaults: { _controller: UserBundle:Admin:deleteForumsGrid }
+
+association_grid:
+    path:     /associationsGrid
+    defaults: { _controller: UserBundle:Admin:associationsGrid }
+
+deleteAssociation_grid:
+    path:     /deleteAssociationsGrid/{id}
+    defaults: { _controller: UserBundle:Admin:deleteAssociationsGrid }
+
+associations_chart:
+    path:     /associationsChart
+    defaults: { _controller: UserBundle:Admin:associationsChart }
+
+meilleursDresseurs_chart:
+    path:     /meilleursDresseursChart
+    defaults: { _controller: UserBundle:Admin:meilleursDresseursChart }
+
+dresseursParRegion_chart:
+    path:     /dresseursParRegionChart
+    defaults: { _controller: UserBundle:Admin:dresseursParRegionChart }
+
+annoncesParCategorie_chart:
+    path:     /annoncesParCategorieChart
+    defaults: { _controller: UserBundle:Admin:annoncesParCategorieChart }
+
+boxes:
+    path:     /boxes
+    defaults: { _controller: UserBundle:Admin:boxes }
+
+admin_index:
+    path:     /
+    defaults: { _controller: UserBundle:Admin:index}
