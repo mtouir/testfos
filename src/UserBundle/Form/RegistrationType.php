@@ -15,13 +15,13 @@ class RegistrationType extends AbstractType
             ->add(
                 'roles', ChoiceType::class, [
                     'choices' => [
-                        'ROLE_ADMIN' => 'Administrateur',
-                        'ROLE_USER' => 'Utilisateur',
-                        'ROLE_VETERINAIRE' => 'Vétérinaire',
-                        'ROLE_DRESSEUR' => 'Dresseur',
-                        'ROLE_PROMENEUR' => 'Promeneur',
-                        'ROLE_ASSOCIATION' => 'Association',
-                        'ROLE_HOTEL' => 'Hôtel'],
+                        'ROLE_ADMIN' => 'ROLE_ADMIN',
+                        'ROLE_USER' => 'ROLE_USER',
+                        'ROLE_VETERINAIRE' => 'ROLE_VETERINAIRE',
+                        'ROLE_DRESSEUR' => 'ROLE_DRESSEUR',
+                        'ROLE_PROMENEUR' => 'ROLE_PROMENEUR',
+                        'ROLE_ASSOCIATION' => 'ROLE_ASSOCIATION',
+                        'ROLE_HOTEL' => 'ROLE_HOTEL'],
                     'multiple' => true,
                 ]
             );
