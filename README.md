@@ -12,20 +12,21 @@ Please follow this steps:
 
 Now you have downloaded the startup project.
 
+5- Download this template https://1drv.ms/u/s!AnSI08Z0h8-BgcdNmOI70YbaDzqcJw and unzip it under c:\wamp64\www\testfos\web.
 
-5- Open the projet in PHPStorm.
+6- Open the projet in PHPStorm.
 
-6- Set up Composer command line tools (project).
+7- Set up Composer command line tools (project).
 
-7- Copy your old parameters.yml to the folder app\config.
+8- Copy your old parameters.yml to the folder app\config.
 
-8- Run the command: composer update.
+9- Run the command: composer update.
 
-9- Set up Symfony command line tools (project).
+10- Set up Symfony command line tools (project).
 
-10- Check the database name in parameters.yml
+11- Check the database name in parameters.yml
 
     If a database error occurs, create a new database using doctrine:database:create then doctrine:schema:create.
 
-11- Enjoy working on your project :)
+12- Enjoy working on your project :)
 
