@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+{% block slide %}
+    <div class="them-inner-banner">
+        <div class="inner-banner-opact">
+            <div class="container">
+                <div class="inner-banner-title">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="">
+                                <h1>Article</h1>
+                                <p>Pet lovers rely on Becky’s Pet Care for professional dog walking and pet sitting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="">
+                                <a href="{{ path('Article_edit' , {'id':articles.utilisateur.id }) }}" class="hvr-float-shadow">Mettre a jour</a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/about/dog-1.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-banner-bottom">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><span>-</span></li>
+                <li><a href="index.html">Page</a></li>
+                <li><span>-</span></li>
+                <li><a href="#">Details</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock slide %}
+{% block content %}
+
+    <section class="Blog-List">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-12">
+                    <div class="Blog-list-item-wrapper">
+                        <div class="list-item blog-details-top-item-wrapper">
+                            <div class="item-img">
+
+                                <span>{{ articles.date|date('d-m-Y') }}</span>
+                            </div>
+                            <div class="blog-details-top-item-text">
+                                <h3>“{{ articles.titre }}”</h3>
+
+                                {% for imagearticle in articles.articleImages %}
+                                    <div><img src="{{ asset('images/images_article/'~ imagearticle.Lien) }}" alt="image"style="align-content: center"></div>
+                                {% endfor %}
+                                <i>publié par <span>{{ articles.utilisateur.username }}</span> </i>
+
+                                <p style="align-content: center">{{ articles.contenu }}</p>
+                                <div class="blog-details-top-item-text-img row">
+                                    <div class="col-sm-6 col-xs-6">
+
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="blog-details-industrial-facts-item-text">
+                            <li>
+
+
+                            </li>
+
+
+                        </ul>
+
+                        <div class="blog-details-comments-section">
+
+
+
+
+                        </div>
+                        <div class="blog-details-leave-a-comment">
+                            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            {% block sdzblog_body %}
+
+                                {% stylesheets
+                                '@FOSCommentBundle/Resources/public/css/comments.css' %}
+                                <link rel="stylesheet" href="{{ asset_url }}" />
+                                {% endstylesheets %}
+
+
+
+                                {% include '@FOSComment/Thread/async.html.twig' with {'id': 'articles'~articles.id } %}
+
+                            {% endblock %}
+                                {% else %}
+                                    <h3>Commentaires</h3>
+                                    <a href="{{ path('fos_user_security_login') }}" class="hvr-float-shadow">Merci de vous connecter afin de pouvoir laisser un commentaire </a>
+
+                            {% endif %}
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-5 col-xs-12">
+                    <div class="Blog-side-bar-list">
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

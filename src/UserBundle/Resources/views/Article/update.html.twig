@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+{% block slide %}
+    <div class="them-inner-banner">
+        <div class="inner-banner-opact">
+            <div class="container">
+                <div class="inner-banner-title">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="">
+                                <h1>Article</h1>
+                                <p>Pet lovers rely on Becky’s Pet Care for professional dog walking and pet sitting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="">
+                                <a href="#" class="hvr-float-shadow">Get A Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/about/dog-1.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-banner-bottom">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><span>-</span></li>
+                <li><a href="index.html">Page</a></li>
+                <li><span>-</span></li>
+                <li><a href="#">Ajout Article</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock slide %}
+{% block content %}
+
+    <section class="Blog-List">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-xs-12">
+                    <div class="Blog-list-item-wrapper">
+                        <div class="list-item blog-details-top-item-wrapper">
+
+
+                        </div>
+
+
+
+                        <form name="userbundle_article" enctype="multipart/form-data" method="post">
+                            <div class="form-group">
+                                <label class="control-label">Titre</label>
+                                <input type="text" name="titre" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Contenu</label>
+                                <textarea name="contenu" class="form-control" ></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">catégorie</label>
+                                <select name="categorie" class="form-control">
+                                    <OPTION>Avant d'Adopter
+                                    <OPTION>Dressage
+                                    <OPTION selected>Alimentation
+                                    <OPTION>Soins
+
+                                </SELECT>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <input type="submit" class="form-control" />
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-5 col-xs-12">
+                    <div class="Blog-side-bar-list">
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

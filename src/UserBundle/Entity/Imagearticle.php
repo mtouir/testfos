@@ -24,16 +24,67 @@ class Imagearticle
     /**
      * @var string
      *
-     * @ORM\Column(name="lien", type="string", length=500, nullable=false)
+     * @ORM\Column(name="lien", type="string", length=500, nullable=true)
      */
     private $lien;
 
     /**
-     * @var integer
+     * @var Article
      *
-     * @ORM\Column(name="id_article", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Article")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_article", referencedColumnName="id")
+     * })
      */
     private $idArticle;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLien()
+    {
+        return $this->lien;
+    }
+
+    /**
+     * @param string $lien
+     */
+    public function setLien($lien)
+    {
+        $this->lien = $lien;
+    }
+
+    /**
+     * @return Article
+     */
+    public function getIdArticle()
+    {
+        return $this->idArticle;
+    }
+
+    /**
+     * @param Article $idArticle
+     */
+    public function setIdArticle($idArticle)
+    {
+        $this->idArticle = $idArticle;
+    }
 
 
 }

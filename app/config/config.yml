@@ -102,3 +102,17 @@ fos_rest:
         view_response_listener: 'force'
         formats:
             json: true
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: UserBundle\Entity\Commentairearticle
+            thread: UserBundle\Entity\Thread
+
+assetic:
+    bundles: [ "UserBundle" ]
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~

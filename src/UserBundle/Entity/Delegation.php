@@ -29,11 +29,63 @@ class Delegation
     private $libelle;
 
     /**
-     * @var integer
+     * @var Gouvernorat
      *
-     * @ORM\Column(name="id_gov", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Gouvernorat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_gov", referencedColumnName="id")
+     * })
      */
     private $idGov;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * @param string $libelle
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+    }
+
+    /**
+     * @return Gouvernorat
+     */
+    public function getIdGov()
+    {
+        return $this->idGov;
+    }
+
+    /**
+     * @param Gouvernorat $idGov
+     */
+    public function setIdGov($idGov)
+    {
+        $this->idGov = $idGov;
+    }
+
 
 
 }

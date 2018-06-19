@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+{% block slide %}
+    <div class="them-inner-banner">
+        <div class="inner-banner-opact">
+            <div class="container">
+                <div class="inner-banner-title">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="">
+                                <h1>Dresseur</h1>
+                                <p>Pet lovers rely on Becky’s Pet Care for professional dog walking and pet sitting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="">
+                                <a href="{{ path('dresseur_edit',{'id':dresseurs.id }) }}" class="hvr-float-shadow">Mettre a jour </a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src= alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-banner-bottom">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><span>-</span></li>
+                <li><a href="index.html">Page</a></li>
+                <li><span>-</span></li>
+                <li><a href="#">details dresseur </a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock slide %}
+{% block content %}
+    <section class="services-details">
+        <div class="container">
+
+            <div class="services-details-title">
+
+                <h3> <span></span></h3>
+                <p></p>
+            </div>
+            <div class="row">
+
+                <div class="col-md-7 col-xs-12">
+                    <div class="your-pets-receive-care">
+                        <div class="pets-image">
+                            <img src="{{ asset('images/')}}{{ dresseurs.nomImage }}"style="width: 500px; height: 500px" alt="image">
+                            <div class=""></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-12">
+                    <div class="services-packages">
+                        <h4>Informations</h4>
+                        <p></p>
+                        <ul>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> {{ dresseurs.nom }}</li>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> {{ dresseurs.prenom }}</li>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> {{ dresseurs.adresse }}</li>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> {{ dresseurs.description }}</li>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> {{ dresseurs.note }} </li>
+                            <li><i class="fa fa-check" aria-hidden="true"></i> {{ dresseurs.tel }} </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+{% endblock content %}

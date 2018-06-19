@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+{% block slide %}
+    <div class="them-inner-banner">
+        <div class="inner-banner-opact">
+            <div class="container">
+                <div class="inner-banner-title">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="">
+                                <h1>Article</h1>
+                                <p>Mes Articles</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="">
+                                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                                    <a href="{{ path('article_add') }}" class="hvr-float-shadow">Ajouter Article</a>
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}" class="hvr-float-shadow">Ajouter Article</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-banner-bottom">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><span>-</span></li>
+                <li><a href="index.html">Page</a></li>
+                <li><span>-</span></li>
+                <li><a href="#">Mes Article</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock slide %}
+
+{% block content %}
+
+    <section class="Blog-List">
+
+        <div class="container">
+            <div class="">
+                <h2>Liste des Articles</h2>
+                <span></span>
+                <div class="Blog-side-bar-list">
+
+                </div>
+            </div>
+
+            <div class="row">
+                {% for articles in articles %}
+                    <div class="col-lg-8 col-md-7 col-xs-12">
+                        <div class="Blog-list-item-wrapper">
+                            <div class="list-item">
+                                <div class="item-img">
+
+
+                                    <div><img src="{{ asset('images/images_article/'~ articles.articleImages[0].Lien) }}" alt="image"></div>
+
+
+                                    <span>{{ articles.date|date('d-m-Y') }}</span>
+                                </div>
+                                <div class="item-text">
+                                    <h3>{{ articles.titre }}</h3>
+
+                                    <a href="{{ path ('article_details' , {'id':articles.id } ) }}"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Voir Plus</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-xs-12">
+
+                        <div class="Blog-side-bar-list">
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+    </div>
+
+{% endblock content %}

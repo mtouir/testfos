@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+{% block slide %}
+    <div class="them-inner-banner">
+        <div class="inner-banner-opact">
+            <div class="container">
+                <div class="inner-banner-title">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="">
+                                <h1>Dresseur</h1>
+                                <p>Pet lovers rely on Becky’s Pet Care for professional dog walking and pet sitting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="">
+                                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                                <a href="{{ path('dresseur_add') }}" class="hvr-float-shadow">Ajouter Dresseur</a>
+
+                                {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}" class="hvr-float-shadow">Ajouter Dresseur</a>
+                                {% endif %}
+                                <a href="{{ path('dresseur_export') }}" class="hvr-float-shadow">Exporter </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/about/dog-1.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-banner-bottom">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><span>-</span></li>
+                <li><a href="index.html">Page</a></li>
+                <li><span>-</span></li>
+                <li><a href="#">Dresseur</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock slide %}
+{% block content %}
+    <h1>Dresseur List</h1>
+
+
+<section class="pet-services-v-one">
+    <div class="container">
+
+
+        <div class="Blog-side-bar-list">
+
+
+
+
+            <form method="POST" action="{{ path('dresseur_search') }}">
+                <input type="text" placeholder="Search..." name="nom" />
+                <button><i class="flaticon-search"></i></button>
+
+            </form>
+
+
+
+        </div>
+
+        <div class="row our-pet-services">
+            {% for dresseurs in dresseurs %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="our-pet-services-item">
+                    <div class="our-pet-services-img">
+                        <img src="{{ asset('images/')}}{{ dresseurs.nomImage }}" style="width: 300px;height: 300px" alt="image">
+
+                    </div>
+
+
+                    <div class="our-pet-services-text">
+                        <h5><a href="{{ path('dresseur_details',{'id':dresseurs.id }) }}">{{ dresseurs.nom  }} {{ dresseurs.prenom }}</a></h5>
+                        <p>{{ dresseurs.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            </div>
+
+    </div>
+
+</section>
+
+
+    <ul class="shop-page-prev-next-button text-center">
+        {{ knp_pagination_render(dresseurs) }}
+    </ul>
+{% endblock content %}

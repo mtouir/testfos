@@ -1,0 +1,28 @@
+article_show:
+    path: /articleshow
+    defaults: { _controller: UserBundle:Article:show}
+article_details:
+    path: /{id}/articlesdetails
+    defaults: { _controller: UserBundle:Article:details}
+article_add:
+    path: /articlesajout
+    defaults: { _controller: UserBundle:Article:ajouter}
+
+Article_edit:
+    path: /editarticle
+    defaults: { _controller: UserBundle:Article:edit}
+Article_search:
+    path: /search
+    defaults: { _controller: UserBundle:Article:rechercher}
+Article_user:
+    path: /Mesartiles
+    defaults: { _controller: UserBundle:Article:articleuser}
+Article_json:
+    path: /json/articleshow
+    defaults: { _controller: UserBundle:Article:jsonarticle}
+Article_addjson:
+    path: /json/articleadd/
+    defaults: { _controller: UserBundle:Article:jsonadd}
+Article_userjson:
+    path: /json/userarticle
+    defaults: { _controller: UserBundle:Article:articleuserjson}

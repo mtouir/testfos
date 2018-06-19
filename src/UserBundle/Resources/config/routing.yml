@@ -1,3 +1,11 @@
+zanimaux_dresser:
+    resource: "@UserBundle/Resources/config/routing/dresseur.yml"
+    prefix:   /dresseur
+
+zanimaux_article:
+    resource: "@UserBundle/Resources/config/routing/article.yml"
+    prefix:   /article
+
 utilisateur:
     resource: "@UserBundle/Resources/config/routing/utilisateur.yml"
     prefix:   /utilisateur

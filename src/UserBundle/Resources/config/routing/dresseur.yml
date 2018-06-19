@@ -1,0 +1,27 @@
+dresseur_home:
+    path: /show
+    defaults: { _controller: UserBundle:Dresseur:show}
+dresseur_add:
+    path: /add
+    defaults: { _controller: UserBundle:Dresseur:add}
+dresseur_edit:
+    path: /edit
+    defaults: { _controller: UserBundle:Dresseur:edit}
+dresseur_delete:
+    path: /delete
+    defaults: { _controller: UserBundle:Dresseur:delete}
+dresseur_search:
+    path: /search
+    defaults: { _controller: UserBundle:Dresseur:rechercher}
+dresseur_details:
+    path: /{id}/details
+    defaults: { _controller: UserBundle:Dresseur:details}
+dresseur_export:
+    path: /export
+    defaults: { _controller: UserBundle:Dresseur:export}
+Dresseur_json:
+    path: /json/dresseurshow
+    defaults: { _controller: UserBundle:Dresseur:jsondresseur}
+dress_search:
+    path: /searchdress
+    defaults: { _controller: UserBundle:Dresseur:search}

@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+    {% block slide %}
+        <div class="them-inner-banner">
+            <div class="inner-banner-opact">
+                <div class="container">
+                    <div class="inner-banner-title">
+                        <div class="row">
+                            <div class="col-sm-8 col-xs-12">
+                                <div class="">
+                                    <h1>Dresseur</h1>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-12">
+                                <div class="">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inner-banner-bottom">
+            <div class="container">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>-</span></li>
+                    <li><a href="index.html">Page</a></li>
+                    <li><span>-</span></li>
+                    <li><a href="#">ajouter dresseur </a></li>
+                </ul>
+            </div>
+        </div>
+{% endblock %}
+{% block content %}
+
+                        <section class="contact-us">
+                            <div class="container">
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12 float-right">
+                                        <div class="get-in-touch-with-us">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="contact-form">
+                                            <h3>Ajouter Dresseur</h3>
+
+                                                {{ form_start(Form) }}
+                                                {{ form_label(Form.nom) }}
+
+                                                {{ form_widget(Form.nom,{'attr':{'class':'from-control'}}) }}
+
+                                                {{ form_label(Form.prenom) }}
+                                                {{ form_widget(Form.prenom,{'attr':{'class':'from-control'}}) }}
+                                                {{ form_label(Form.adresse) }}
+                                                {{ form_widget(Form.adresse,{'attr':{'class':'from-control'}}) }}
+                                                {{ form_label(Form.description) }}
+                                                {{ form_widget(Form.description,{'attr':{'class':'from-control'}}) }}
+
+                                                {{ form_label(Form.tel) }}
+                                                {{ form_widget(Form.tel,{'attr':{'class':'from-control'}}) }}
+
+                                                {{ form_label(Form.idGouv) }}
+                                                {{ form_widget(Form.idGouv,{'attr':{'class':'from-control'}}) }}
+                                                {{ form_label(Form.idDeleg) }}
+                                                {{ form_widget(Form.idDeleg,{'attr':{'class':'from-control'}}) }}
+                                            {{ form_label(Form.file) }}
+                                            {{ form_widget(Form.file,{'attr':{'class':'from-control'}}) }}
+                                            {{ form_label(Form.Enregistrer) }}
+                                            {{ form_widget(Form.Enregistrer,{'attr':{'class':'from-control'}}) }}
+
+
+                                                {{ form_end(Form) }}
+
+
+                                            <!-- Contact Form Validation Markup -->
+                                            <!-- Contact alert -->
+                                            <div class="alert-wrapper" id="alert-success">
+                                                <div id="success">
+                                                    <button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                    <div class="wrapper">
+                                                        <p>Your message was sent successfully.</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- End of .alert_wrapper -->
+                                            <div class="alert-wrapper" id="alert-error">
+                                                <div id="error">
+                                                    <button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                    <div class="wrapper">
+                                                        <p>Sorry!Something Went Wrong.</p>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- End of .alert_wrapper -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-map">
+                                <div class="container icon-img"></div>
+                                <!-- Google Map _______________________ -->
+                                <div id="map"></div>
+                            </div>
+                        </section>
+                        <ul>
+
+                        </ul>
+                    </div>
+                </div>
+                <section class="faq-page">
+
+                </section>
+            </div>
+        </div>
+        <div class="contact-map">
+            <div class="container icon-img"></div>
+            <!-- Google Map _______________________ -->
+            <div id="map"></div>
+        </div>
+    </section>
+
+
+{% endblock content %}
