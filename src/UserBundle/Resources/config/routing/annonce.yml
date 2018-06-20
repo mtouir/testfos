@@ -1,0 +1,24 @@
+project_zanimaux_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+
+ajouter:
+    path:     /ajouter
+    defaults: { _controller: UserBundle:Article:ajouter }
+
+chercher:
+    path:     /chercher
+    defaults: { _controller: UserBundle:Article:chercher }
+listeAnimaux:
+    path:     /listeAnimaux
+    defaults: { _controller: UserBundle:AnnonceAnimaux:liste }
+MesAnnonce:
+    path:     /MesAnnonce
+    defaults: { _controller: UserBundle:AnnonceAnimaux:MesAnnonce }
+
+detailsAnnonceAnimal:
+    path:     /detailsAnnonceAnimal
+    defaults: { _controller: UserBundle:AnnonceAnimaux:details }
+deposerAnnonce:
+    path:     /deposerAnnonce
+    defaults: { _controller: UserBundle:AnnonceAnimaux:deposerAnnonce }

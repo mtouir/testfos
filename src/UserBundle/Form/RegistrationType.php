@@ -21,7 +21,8 @@ class RegistrationType extends AbstractType
                         'ROLE_DRESSEUR' => 'ROLE_DRESSEUR',
                         'ROLE_PROMENEUR' => 'ROLE_PROMENEUR',
                         'ROLE_ASSOCIATION' => 'ROLE_ASSOCIATION',
-                        'ROLE_HOTEL' => 'ROLE_HOTEL'],
+                        'ROLE_HOTEL' => 'ROLE_HOTEL',
+                        'ROLE_TRANSPORTEUR' => 'ROLE_TRANSPORTEUR'],
                     'multiple' => true,
                 ]
             );

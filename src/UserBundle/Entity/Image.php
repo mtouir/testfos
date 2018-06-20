@@ -8,26 +8,75 @@ use Doctrine\ORM\Mapping as ORM;
  * Image
  *
  * @ORM\Table(name="image")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserBundle\Repository\ImageRepository")
  */
 class Image
 {
     /**
-     * @var integer
+     * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @ORM\Column(type="string",length=500)
+     */
+    private $path;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $idAnnonce;
 
     /**
-     * @var string
+     * Get id
      *
-     * @ORM\Column(name="lien", type="string", length=1000, nullable=false)
+     * @return int
      */
-    private $lien;
+    public function getId()
+    {
+        return $this->id;
+    }
 
+    /**
+     * Set path
+     *
+     * @param string $path
+     *
+     * @return Image
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdAnnonce()
+    {
+        return $this->idAnnonce;
+    }
+
+    /**
+     * @param mixed $idAnnonce
+     */
+    public function setIdAnnonce($idAnnonce)
+    {
+        $this->idAnnonce = $idAnnonce;
+    }
 
 }
-

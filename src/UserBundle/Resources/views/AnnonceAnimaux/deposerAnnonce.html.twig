@@ -1,0 +1,256 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ asset('css/commun.min.css') }}">
+    <style media="screen" type="text/css">
+
+.depresp17-top {
+    min-height: 86px;
+    text-align: center;
+    background-color: #ededed;
+    position: relative;
+    }
+.depresp17-intop {
+    width: 1000px;
+    margin: auto;
+    background: url({{ asset('images/depresp_illus.png') }}) no-repeat 0 bottom #ededed;
+    padding: 20px 0 20px 0;
+}
+    </style>
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+            var duration = 500;
+            jQuery(window).scroll(function() {
+                if (jQuery(this).scrollTop() > 100) {
+                    // Si un défillement de 100 pixels ou plus.
+                    // Ajoute le bouton
+                    jQuery('.cRetour').fadeIn(duration);
+                } else {
+                    // Sinon enlève le bouton
+                    jQuery('.cRetour').fadeOut(duration);
+                }
+            });
+
+            jQuery('.cRetour').click(function(event) {
+                // Un clic provoque le retour en haut animé.
+                event.preventDefault();
+                jQuery('html, body').animate({scrollTop: 0}, duration);
+                return false;
+            })
+        });
+
+    </script>
+    <div class="cRetour" style="display: none;"></div>
+
+{# top de page #}
+
+    <div class="depresp17-top">
+        <div class="depresp17-intop">
+            <h1>Publiez gratuitement votre annonce -
+                <strong>
+                    Animaux
+                </strong>
+            </h1>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+
+
+    <style media="screen" type="text/css">
+        div
+
+        #quotesleft {
+            float: left;
+            width: 33%;
+        }
+        #quotescenter {
+            float: left;
+            width: 33%;
+        }
+        #quotesright{
+            float: left;
+            width: 33%;
+        }
+</style>
+
+
+    {# bloc de formulaire #}
+    {#
+        {% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'ProjectZanimauxBundle::layout.html.twig']}
+    {#<div class="form-group"{{ class }}>
+        <label class="control-label" for="{{ Form.type.vars.id }}"> catégorie Annonce</label>
+        <input type="">#}
+    {#
+  {{ dump(form) }}
+  </div>
+      {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+      {{ form_row(form.TypeAnnonce) }}
+
+{{ form_widget(form) }}
+     {{ form_end(form) }}
+    #}
+
+
+    {#{{ dump(form.datenaissance.vars) }}#}
+    <script type="text/javascript" src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+
+    {% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'ProjectZanimauxBundle::layout.html.twig'] %}
+
+    <div class ="container" >
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {% set class = '' %}
+        {% if not form.TypeAnnonce.vars.valid %}
+            {%  set class= 'has-error' %}
+        {% endif %}
+        <div class="form-group {{ class }}"  align="center">
+            <label class="control-label" for="{{ form.TypeAnnonce.vars.id }}"> Choissez le Type d'Annonce</label>
+
+            <select onchange="yesnoCheck(this);"  class="form-control" id="{{ form.TypeAnnonce.vars.id }}" name="{{ form.TypeAnnonce.vars.full_name }}" value="{{ form.TypeAnnonce.vars.value }}" style="width: 150px !important; min-width: 50px; max-width: 250px;">
+            {% for choice in form.TypeAnnonce.vars.choices %}
+                {% if choice.value == 1  %} }
+                <option value={{ choice.value }} selected >{{ choice.label }}</option>
+                    {% else %}
+                        <option value={{ choice.value }}>{{ choice.label }}</option>
+Ò                {% endif %}
+            {% endfor %}
+
+        </select>
+        {% do form.TypeAnnonce.setRendered %}
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group {{ class }}" style="display: block;" id="autre">
+
+
+
+
+            {{ form_row(form.datenaissance) }}
+            {% do form.datenaissance.setRendered %}
+
+            {{ form_row(form.identification) }}
+            {% do form.identification.setRendered %}
+
+            {{ form_row(form.genealogique) }}
+            {% do form.genealogique.setRendered %}
+
+            {{ form_row(form.race) }}
+            {% do form.race.setRendered %}
+
+            {{ form_row(form.pelage) }}
+            {% do form.pelage.setRendered %}
+
+
+
+        </div>
+        <div class="form-group {{ class }}" style="display: block;" id="article">
+
+
+
+
+            {{ form_row(form.sexe) }}
+            {% do form.sexe.setRendered %}
+
+
+
+        </div>
+
+
+
+
+
+
+
+        {#<button type="submit">Ajouter</button>#}
+
+        {{ form_end(form) }}
+        <div id="quotesleft">
+            <form action="{{ oneup_uploader_endpoint('gallery') }}" class="dropzone" style="width:200px; height:200px; border:4px dashed black" id="fine-uploader">
+            </form>
+        </div>
+        <div id="quotescenter">
+            <form action="{{ oneup_uploader_endpoint('gallery') }}" class="dropzone" style="width:200px; height:200px; border:4px dashed black" id="fine-uploader">
+            </form>
+        </div>
+        <div id="quotesright">
+            <form action="{{ oneup_uploader_endpoint('gallery') }}" class="dropzone" style="width:200px; height:200px; border:4px dashed black" id="fine-uploader">
+            </form>
+        </div>
+
+
+    </div>
+
+    <script>
+        function yesnoCheck(that) {
+            if ((that.value != "1") || (that.value != "2")) {
+                document.getElementById("autre").style.display = "none";
+            }
+            if ((that.value == "1") || (that.value == "2")) {
+                document.getElementById("autre").style.display = "block";
+            }
+            if ((that.value == "6") || (that.value == "7") || (that.value == "8")) {
+                document.getElementById("article").style.display = "none";
+            }
+
+        }
+        function yesonclick() {
+
+            var element =document.getElementById("select");
+
+            element.value = element.options[element.selectedIndex].value;
+            alert(element.value);
+
+        }
+    </script>
+
+{#
+            {% set class = '' %}
+            {% if not form.titre.vars.valid %}
+                {%  set class= 'has-error' %}
+            {% endif %}
+
+            <label class="control-label" for="{{ form.titre.vars.id }}"> Titre</label>
+            <input type="text" class="form-control" id="{{ form.titre.vars.id }}" name="{{ form.titre.vars.full_name }}" value="{{ form.titre.vars.value }}">
+  {% do form.titre.setRendered %}
+            {% if not form.titre.vars.valid %}
+            {% for error in form.titre.vars.errors %}
+                <span class="help-block">{{ error.message }}</span>
+            {% endfor %}
+            {% endif %}
+    <script>
+        var $sport = $('#project_zanimauxbundle_annonceanimal_TypeAnnonce');
+        // When sport gets selected ...
+        $sport.change(function() {
+            // ... retrieve the corresponding form.
+            var $form = $(this).closest('form');
+            // Simulate form data, but only include the selected sport value.
+            var data = {};
+            data[$sport.attr('name')] = $sport.val();
+            // Submit data via AJAX to the form's action path.
+            $.ajax({
+                url : "POST",
+                type: "{{ path('deposerAnnonce') }}",
+                data : data,
+                success: function(html) {
+                    // Replace current position field ...
+                    //$('#project_zanimauxbundle_annonceanimal_datenaissance').replaceWith(
+                        // ... with the returned one from the AJAX response.
+                        $(html).find('#project_zanimauxbundle_annonceanimal_datenaissance').hide();
+                    //);
+                    // Position field now displays the appropriate positions.
+                }
+            });
+        });
+    </script>
+    #}
+{% endblock %}

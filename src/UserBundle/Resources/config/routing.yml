@@ -10,6 +10,10 @@ utilisateur:
     resource: "@UserBundle/Resources/config/routing/utilisateur.yml"
     prefix:   /utilisateur
 
+annonce:
+    resource: "@UserBundle/Resources/config/routing/annonce.yml"
+    prefix:   /annonce
+
 index:
     path:     /
     defaults: { _controller: UserBundle:Default:index}

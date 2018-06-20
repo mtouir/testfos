@@ -39,6 +39,7 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -116,3 +117,10 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+
+oneup_uploader:
+    mappings:
+        gallery:
+            frontend: dropzone # or any uploader you use in the frontend
+            root_folder: true
+

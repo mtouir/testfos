@@ -1,0 +1,225 @@
+{% extends 'base.html.twig' %}
+
+
+{% block slide %}
+    <div class="them-inner-banner">
+        <div class="inner-banner-opact">
+            <div class="container">
+                <div class="inner-banner-title">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="">
+                                <h1>Détails</h1>
+                                <p>Pet lovers rely on Becky’s Pet Care for professional dog walking and pet sitting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="">
+                                <a href="#" class="hvr-float-shadow">Get A Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/about/dog-1.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-banner-bottom">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><span>-</span></li>
+                <li><a href="index.html">Page</a></li>
+                <li><span>-</span></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section class="shop-page-details">
+        <div class="container">
+            <div class="single-product-details">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12 product-order-img">
+                        <div class="vig-img"><img src="{{ image[0].path | slice(4, image[0].path|length) }}" alt="image"></div>
+                        <div class="row">
+                            {% for i in image %}
+                            <div class="col-xs-4">
+                                <div><img src="{{ i.path | slice(4, i.path|length) }}" alt="image"></div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="product-order-details">
+                            <h5>{{ animal.titre }}</h5>
+                            <ul class="price">
+                                <li>${{ animal.prix }}</li>
+                            </ul>
+                            <div class="rating-and-tag">
+                                <ul class="rating">
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                </ul>
+                                <ul class="tag">
+                                    <li>Categories:  <span class="p-color">
+                                          {{ animal.TypeAnnonce.nom }},
+                                        </span></li>
+                                </ul>
+                            </div>
+                            <p>
+
+                                {{ animal.text }}
+                            </p>
+
+
+                                {#<a href="#" class="hvr-float-shadow">Add To Cart</a>#}
+                            </div>
+                        </div> <!-- /.product-order-details -->
+                    </div> <!-- /.single-product-details -->
+                </div>
+
+                <div class="row">
+                    <div class="col-md-9 col-xs-12">
+                        <div class="review-tab">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#home"> Description</a></li>
+                                <li><a data-toggle="tab" href="#menu1"> Information additionnelle</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="home" class="tab-pane fade in active">
+                                    <p>
+                                        {{ animal.text }}
+                                    </p>
+                               </div>
+                                <div id="menu1" class="tab-pane fade">
+                                    {% if ( animal.TypeAnnonce.id == 1 ) or ( animal.TypeAnnonce.id == 2 )  %}
+                                    <ul>
+                                        <li>
+                                            <span class="p-color">
+                                          Gatégorie :
+                                        </span></li>
+                                        {{ animal.TypeAnnonce.nom }}
+                                        </li>
+                                        <li>
+                                            <span class="p-color">
+                                          Sexe :
+                                        </span></li>
+                                        {{ animal.sexe }}
+                                        </li>
+                                        <li>
+                                            <span class="p-color">
+                                          Numéro d'identification :
+                                        </span></li>
+                                        {{ animal.identification  }}
+                                        </li>
+                                        <li>
+                                            <span class="p-color">
+                                          Nombre :
+                                        </span></li>
+                                        {{ animal.nombre  }}
+                                        </li>
+                                        <li>
+                                            <span class="p-color">
+                                          Inscription de l'animal à un livre généalogique :
+                                        </span></li>
+                                        {% if animal.genealogique ==1 %}
+                                        oui
+                                            {% else %}
+                                         non
+                                        {% endif %}
+
+                                        </li>
+                                        <li>
+                                            <span class="p-color">
+                                          Race :
+                                        </span></li>
+                                        {{ animal.race  }}
+                                        </li>
+                                        <li>
+                                            <span class="p-color">
+                                         Pelage :
+                                        </span></li>
+                                        {{ animal.pelage  }}
+                                        </li>
+                                        <li>
+                                            <span class="p-color">
+                                          Addresse :
+                                        </span></li>
+                                        {{ animal.ville  }}  °code postal : {{ animal.postal }}
+                                        </li>
+                                    </ul>
+
+                                    {% endif %}
+                                    {% if ( animal.TypeAnnonce.id != 1 ) or ( animal.TypeAnnonce.id != 2 ) %}
+                                    <ul>
+                                        <li>
+                                            <span class="p-color">
+                                          Gatégorie :
+                                        </span></li>
+                                        {{ animal.TypeAnnonce.nom }}
+                                        </li>
+                                        {% if animal.TypeAnnonce.id !=6 %}
+                                        <li>
+                                            <span class="p-color">
+                                          Sexe :
+                                        </span></li>
+                                        {{ animal.sexe }}
+                                        </li>
+                                        {% endif %}
+                                        <li>
+                                            <span class="p-color">
+                                          Nombre :
+                                        </span></li>
+                                        {{ animal.nombre  }}
+                                        </li>
+
+
+                                        <li>
+                                            <span class="p-color">
+                                          Addresse :
+                                        </span></li>
+                                        {{ animal.ville  }}  °code postal : {{ animal.postal }}
+                                        </li>
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div id="menu2" class="tab-pane fade">
+                                    <div id="review">
+                                        <div class="single-review clearfix">
+                                            <img src="images/home/img-5.jpg" alt="" class="float-left">
+                                            <div class="text float-left">
+                                                <div class="clearfix">
+                                                    <div class="float-left">
+                                                        <span>March 14, 2017</span>
+                                                        <span>10 days ago</span>
+                                                        <h6>Lindsay Lohan</h6>
+                                                    </div>
+                                                    <ul class="float-right">
+                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    </ul>
+                                                </div> <!-- /.clearfix -->
+                                                <p>I am glad that I have taken the PHP Framework course here at Scholar. The teacher has been amazing throughtout the course. They have outstanding resources to  help you. In addition.</p>
+                                            </div> <!-- /.text -->
+                                        </div> <!-- /.single-review -->
+                                    </div> <!-- /.review -->
+                                </div>
+                            </div>
+                        </div> <!-- /.review-tab -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- / .shop-page-details -->
+
+{% endblock %}

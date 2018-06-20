@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+
+{% block slide %}
+    <div class="them-inner-banner">
+        <div class="inner-banner-opact">
+            <div class="container">
+                <div class="inner-banner-title">
+                    <div class="row">
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="">
+                                <h1>Annoces des animaux</h1>
+                                <p>Pet lovers rely on Becky’s Pet Care for professional dog walking and pet sitting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="">
+                                <a href="#" class="hvr-float-shadow">Get A Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/about/dog-1.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-banner-bottom">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><span>-</span></li>
+                <li><a href="index.html">Page</a></li>
+                <li><span>-</span></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- Shop ____________________________ -->
+    <section class="shop-page">
+        <div class="container">
+            <div class="shop-item-wrapper">
+                <div class="row top-select-and-form-section">
+                    <div class="col-lg-3  col-sm-4 col-xs-12">
+                        <div class="">
+                            <form action="#">
+                                <input type="text" placeholder="Search Product ...">
+                                <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6  col-sm-4  col-xs-12">
+                        <div class="text-center">
+                            <p>Showing 1 - 12 of 12 Result</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4  col-xs-12">
+                        <ul class="select-section">
+                            <li>
+                                <select class="selectpicker">
+                                    <option>Filtrer</option>
+                                    <option>Par prix</option>
+                                    <option>Par catégorie</option>
+                                    <option>Par date</option>
+                                </select>
+                            </li>
+                        </ul> <!-- /.top-select-section -->
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+
+                    {% for i in animaux %}
+
+
+                    <div class="col-md-4 col-xs-6 product-item-width">
+                        <div class="shop-item-product-wrapper">
+                            <div class="shop-item-product">
+                                <div class="clear-fix">
+                                    <a href="#" class="float-left"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                    <a href="#" class="float-right"><i class="flaticon-shopping-bag"></i></a>
+                                </div>
+                                <div class="product">
+                                    <img src="{{ i.path | slice(4, i.path|length) }}" alt="image">
+                                </div>
+                                <div class="price-and-taitle">
+                                    <h5><a href="{{ path('detailsAnnonceAnimal',{'identifiant':i.id})}}">{{i.titre }}</a></h5>
+                                    <span>$ {{ i.prix }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+
+
+
+
+
+
+
+                <ul class="shop-page-prev-next-button text-center">
+                    <div class="text-center">{{ knp_pagination_render(animaux) }}</div>
+
+                    <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>	<!-- / .shop-item-wrapper -->
+        </div>
+    </section>
+{% endblock %}

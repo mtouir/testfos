@@ -31,3 +31,4 @@ security:
         - { path: ^/promeneur, role: ROLE_PROMENEUR }
         - { path: ^/association, role: ROLE_ASSOCIATION }
         - { path: ^/hotel, role: ROLE_HOTEL }
+        - { path: ^/annonce, role: IS_AUTHENTICATED_FULLY }
